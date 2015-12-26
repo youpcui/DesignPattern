@@ -5,8 +5,9 @@ Father f = SimpleFactory.createInstance(Object o);
 
 point 2£º
 createInstance(Object o){
-    switch(sm){
-    case "o":    return new Son();
+    switch(o){
+    case "boy":    return new Boy();
+    case "girl":   return new Girl();
     }
 }
 
