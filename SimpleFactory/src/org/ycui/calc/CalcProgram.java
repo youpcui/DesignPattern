@@ -13,7 +13,6 @@ public class CalcProgram {
 		double num1 = 0.0d;
 		double num2 = 0.0d;
 		String oper = null;
-		Operation o = null;
 		try{			
 			num1 = Double.parseDouble(readDataFromConsole("Please input number 1: ")); // input first number
 			oper = readDataFromConsole("Please select a operater: (+ - * /)"); // input a operator
@@ -21,25 +20,13 @@ public class CalcProgram {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		switch(oper){
-		case "+":
-			o = new OperationAdd(num1,num2);
-			break;
-		case "-":
-			o = new OperationDim(num1,num2);
-			break;
-		case "*":
-			o = new OperationMul(num1,num2);
-			break;
-		case "/":
-			o = new OperationDiv(num1,num2);
-			break;
-		}
-		
-		System.out.println("The result is: " + o.getResult());
+		Operation o = OperationFactory.createOperation(num1, num2, oper);	// transmit variables			
+		System.out.println("The result is: " + o.getResult()); // print result
 	}
 
-
+/**
+ * Read input stream from console
+ * */
 private static String readDataFromConsole(String prompt) {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     String str = null;
