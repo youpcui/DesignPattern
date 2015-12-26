@@ -12,3 +12,4 @@ createInstance(Object o){
 
 优点：
 客户端与操作类的松耦合，便于扩展程序。
+
