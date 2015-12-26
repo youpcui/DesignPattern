@@ -10,14 +10,33 @@ public class CalcProgram {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		double num1 = 0.0d;
+		double num2 = 0.0d;
+		String oper = null;
+		Operation o = null;
 		try{			
-			double num1 = Double.parseDouble(readDataFromConsole("Please input number 1: "));
-			String oper = readDataFromConsole("Please select a operater: (+ - * /)");
-			double num2 = Double.parseDouble(readDataFromConsole("Please input number 2: "));
-			System.out.println("The result is:  "+ Operation.getResult(num1, num2, oper));			
+			num1 = Double.parseDouble(readDataFromConsole("Please input number 1: ")); // input first number
+			oper = readDataFromConsole("Please select a operater: (+ - * /)"); // input a operator
+			num2 = Double.parseDouble(readDataFromConsole("Please input number 2: ")); // input second number
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		switch(oper){
+		case "+":
+			o = new OperationAdd(num1,num2);
+			break;
+		case "-":
+			o = new OperationDim(num1,num2);
+			break;
+		case "*":
+			o = new OperationMul(num1,num2);
+			break;
+		case "/":
+			o = new OperationDiv(num1,num2);
+			break;
+		}
+		
+		System.out.println("The result is: " + o.getResult());
 	}
 
 
