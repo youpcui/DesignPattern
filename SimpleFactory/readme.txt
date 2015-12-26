@@ -1,4 +1,5 @@
 简单工厂与超类关联，根据传入的参数自动返回子类对象。
+子类要继承自超类或实现接口。
 
 point 1：
 Father f = SimpleFactory.createInstance(Object o);
