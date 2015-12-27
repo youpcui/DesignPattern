@@ -52,7 +52,7 @@ private static String readDataFromConsole(String prompt) {
 
 private static boolean verifyNum(String str){
 	if (!str.matches("^[0-9]+([.]{0,1}[0-9]+){0,1}$"))
-        return false;
+		return false;
     return true;
 
 }
