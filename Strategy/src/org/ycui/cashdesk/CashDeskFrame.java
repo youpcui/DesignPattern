@@ -71,20 +71,28 @@ public class CashDeskFrame extends Frame{
 	}
 */
 	class ButtonOKListener implements ActionListener{ // action on click button "OK"
-		double underTotal;
-		double total;
+		double underTotal = 0.0d;
+		double total = 0.0d;	
 		public void actionPerformed(ActionEvent evt){
-			if("_STRING".equals(verifyInput(textFieldPrice.getText()))){ // verify the price
+			String strTFP = textFieldPrice.getText();
+			String strTFQ = textFieldQuantity.getText();
+			double dTFP = 0.0d;
+			int iTFQ = 0;
+			if("_STRING".equals(verifyInput(strTFP))){ // verify the price
 				JOptionPane.showMessageDialog(null, "Wrong input, please input a corret price!");
 				textFieldPrice.setText("");
 			}
-			else if(!"_INT".equals(verifyInput(textFieldQuantity.getText()))){ // verify the quantity
+			else if(!"_INT".equals(verifyInput(strTFQ))){ // verify the quantity
 				JOptionPane.showMessageDialog(null, "Wrong input, the quantity must be a integer!");
 				textFieldQuantity.setText("");
 			}else{
-				underTotal =  (Double.parseDouble(textFieldPrice.getText()) * Integer.parseInt(textFieldQuantity.getText()));
-				textAreaList.append("Price uni:" + textFieldPrice.getText() + ", Quantity:" + textFieldQuantity.getText() 
-						+ ", under total: " + (Double.parseDouble(textFieldPrice.getText()) * Integer.parseInt(textFieldQuantity.getText())) + "\n");
+				dTFP = Double.parseDouble(strTFP);
+				iTFQ = Integer.parseInt(strTFQ);
+				underTotal =  dTFP * iTFQ;
+				textAreaList.append("Price uni:" + strTFP + 
+						", Quantity:" + strTFQ +
+						", under total: " + 
+						new java.text.DecimalFormat("#0.00").format(underTotal) + "\n");
 				total += underTotal;
 				labelCashTotal.setText(new java.text.DecimalFormat("#0.00").format(total)); // DecimalFormat 2
 			}
