@@ -10,18 +10,28 @@ public class CalcProgram {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		double num1 = 0.0d;
-		double num2 = 0.0d;
+		String num1 = null;
+		String num2 = null;
 		String oper = null;
-		try{			
-			num1 = Double.parseDouble(readDataFromConsole("Please input number 1: ")); // input first number
+		boolean flag = false;
+		do{			
+			num1 = readDataFromConsole("Please input number 1: "); // input first number
 			oper = readDataFromConsole("Please select a operater: (+ - * /)"); // input a operator
-			num2 = Double.parseDouble(readDataFromConsole("Please input number 2: ")); // input second number
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		Operation o = OperationFactory.createOperation(num1, num2, oper);	// transmit variables			
-		System.out.println("The result is: " + o.getResult()); // print result
+			num2 = readDataFromConsole("Please input number 2: "); // input second number
+			
+			if(verifyNum(num1) && verifyNum(num2) && verifyOper(oper)){
+				Operation o = OperationFactory.
+						createOperation(Double.parseDouble(num1), 
+										Double.parseDouble(num2), 
+										oper);	// transmit variables			
+				System.out.println("The result is: " + o.getResult()); // print result
+				flag=false;
+			}else{
+				System.out.println("Please check your input!");
+				flag = true;
+			}
+		}while(flag);
+		
 	}
 
 /**
@@ -38,5 +48,19 @@ private static String readDataFromConsole(String prompt) {
         e.printStackTrace();
     }
     return str;
+}
+
+private static boolean verifyNum(String str){
+	if (!str.matches("^[0-9]+([.]{0,1}[0-9]+){0,1}$"))
+        return false;
+    return true;
+
+}
+
+private static boolean verifyOper(String str){
+	if("+".equals(str) || "-".equals(str) || "*".equals(str) || "/".equals(str))
+		return true;
+	return false;
+	
 }
 }

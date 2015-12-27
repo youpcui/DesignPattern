@@ -6,7 +6,7 @@ public class OperationFactory {
 		case "+":
 			return new OperationAdd(num1, num2);// return instance "+"
 		case "-":
-			return new OperationDim(num1, num2);// return instance "-"
+			return new OperationSub(num1, num2);// return instance "-"
 		case "*":
 			return new OperationMul(num1, num2);// return instance "*"
 		case "/":

@@ -39,9 +39,9 @@ class OperationAdd extends Operation{
 	}
 }
 
-class OperationDim extends Operation{
+class OperationSub extends Operation{
 	double result = 0.0d;
-	public OperationDim(double num1, double num2){
+	public OperationSub(double num1, double num2){
 		super(num1, num2);		
 	}
 	public double getResult(){
