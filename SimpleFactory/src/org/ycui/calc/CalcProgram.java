@@ -13,6 +13,7 @@ public class CalcProgram {
 		String num1 = null;
 		String num2 = null;
 		String oper = null;
+				
 		boolean flag = false;
 		do{			
 			num1 = readDataFromConsole("Please input number 1: "); // input first number
