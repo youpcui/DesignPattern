@@ -1,4 +1,4 @@
-package org.ycui.cashdesk;
+package ycui.dp.cashdesk;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -63,13 +63,6 @@ public class CashDeskFrame extends Frame{
 		setVisible(true);
 	}
 	
-/*	
-	public void clickButtonOK(){ // inner class
-		buttonOK.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent evt){labelCashTotal.setText("OK");}
-		});
-	}
-*/
 	class ButtonOKListener implements ActionListener{ // action on click button "OK"
 		double underTotal = 0.0d;
 		double total = 0.0d;	
