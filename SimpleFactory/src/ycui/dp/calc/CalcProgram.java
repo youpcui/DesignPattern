@@ -1,4 +1,4 @@
-package org.ycui.calc;
+package ycui.dp.calc;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package org.ycui.cashdesk;
+package ycui.dp.cashdesk;
 
 public class CashDeskProgram {
 

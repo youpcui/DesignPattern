@@ -1,4 +1,4 @@
-package org.ycui.calc;
+package ycui.dp.calc;
 
 public abstract class Operation {
 	private double num1 = 0.0d;
